@@ -1,7 +1,7 @@
 <?php
 
 
-class Handler { // Singleton должен гарантировать единовременное выполнение только одной операции
+class Handler { // обработчик
 	
 	static private $exchangeRate; // полученный из источника массив курсов валют
 	static private $operation; // метод к исполнению
@@ -21,14 +21,14 @@ class Handler { // Singleton должен гарантировать едино�
 		self::execute();
 	}	
 	
-	static public function insertExchangeRate() { // подучить и добавленить в базу данные о курсах валют
-		self::$exchangeRate = new ExchangeRate();
-
+//	static public function insertExchangeRate() { // подучить и добавленить в базу данные о курсах валют
+//		self::$exchangeRate = new ExchangeRate();
+//
 //		foreach(self::$exchangeRate->valute as $key) {
 //			$query = "INSERT INTO valute VALUES ('". implode("', '", $key) ."')";
 //			if (!$result = $mysqli->query($query)) { exit ($mysqli->error); }
 //		}
-	}
+//	}
 
 	public function execute() {
 		self::$operation->execute(); // запустить процесс
